@@ -21,6 +21,6 @@ public class VoteApplication {
 	@RequestMapping(value = "/showvote") 
 	public String showVote()  
 	{ 
-		return "Your Candidate is Leading";  
+		return "Your Candidate is Leading v1";  
 	}  
 }
