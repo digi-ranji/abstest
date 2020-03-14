@@ -16,6 +16,11 @@ public class VoteApplication {
 	@RequestMapping(value = "/welcome") 
 	public String sayWelcome()  
 	{ 
-		return "Hellow Voters";  
+		return "Hello Voters";  
+	}  
+	@RequestMapping(value = "/showvote") 
+	public String showVote()  
+	{ 
+		return "Your Candidate is Leading";  
 	}  
 }
