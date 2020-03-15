@@ -25,13 +25,13 @@ public class VoteApplication {
 		return "Your Candidate is Leading v1.1 ";  
 	}  
 	@GetMapping("/addvote/{v_id}")
-	public String raddVote(@PathVariable String v_id) {
+	public String addVote(@PathVariable String v_id) {
 		
 
 		return v_id+"1";
 	}
 	@GetMapping("/getvote/{c_id}")
-	public String raddVote(@PathVariable String c_id) {
+	public String getVote(@PathVariable String c_id) {
 		
 
 		return c_id+"100";
