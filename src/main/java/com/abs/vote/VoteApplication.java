@@ -49,8 +49,8 @@ public class VoteApplication {
 		try 
 		{
 			if ( jedis == null)
-				jedis = new Jedis("redisroute-abspoc.apps.lnk.phciclab.net", 6379);
-			msg = msg + "Step 1"; 
+				jedis = new Jedis("redisroute-abspoc.apps.lnk.phciclab.net");
+			msg = msg + "Step 1"+jedis.ping()  ; 
 			jedis.set("key1", "Value1");
 			msg = msg + "Step 2"; 
 			msg = "Success Key retrived is " + jedis.get("key1");
