@@ -68,7 +68,7 @@ public class VoteApplication {
 				    msg = " Connected > "; 
 				 //   System.out.println("Connected to Redis");
               */
-			 Jedis jedis = new Jedis("routeredis-redishub.apps.lnk.phciclab.net", 6379);
+			 Jedis jedis = new Jedis("127.0.0.1", 26379);
 			    jedis.auth("admin");
 			    msg = " Connected > "; 
 		}
