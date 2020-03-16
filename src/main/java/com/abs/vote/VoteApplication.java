@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import redis.clients.jedis.Jedis; 
 import redis.clients.jedis.JedisPool; 
+import java.net.URI;
+import redis.clients.jedis.JedisShardInfo;
+
 @SpringBootApplication
 @RestController
 public class VoteApplication {
 	
-	private  Jedis jedis = null;
 	
 
 
@@ -48,12 +50,15 @@ public class VoteApplication {
 		String msg="Error Connecting Redis";
 		try 
 		{
-			if ( jedis == null)
-				jedis = new Jedis("http://redisroute-default.apps.lnk.phciclab.net");
-			msg = msg + "Step 1"+jedis.ping()  ; 
-			jedis.set("key1", "Value1");
-			msg = msg + "Step 2"; 
-			msg = "Success Key retrived is " + jedis.get("key1");
+			  String uri = "rediss://redisroute-default.apps.lnk.phciclab.net:6379";
+			  JedisShardInfo shardInfo = new JedisShardInfo(uri);
+			  shardInfo.setPassword("admin");
+
+			  Jedis jedis = new Jedis(shardInfo);
+			  msg = msg + "Step 1"; 
+			  jedis.set("key1", "Value1");
+			  msg = msg + "Step 2"; 
+			  msg = msg + "Step 3" + jedis.get("key1") ; 
 		}
 		catch(Exception ex)
 		{
