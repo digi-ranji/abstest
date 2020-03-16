@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import redis.clients.jedis.Jedis; 
-
+import redis.clients.jedis.JedisPool; 
 @SpringBootApplication
 @RestController
 public class VoteApplication {
+	
+	private  JedisPool pool = null;
+	
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(VoteApplication.class, args);
@@ -38,5 +42,22 @@ public class VoteApplication {
 		
 
 		return c_id+"100";
+	}
+	@GetMapping("/chkredis")
+	public String checkRedis() {
+		String msg="Error Connecting Redis";
+		try 
+		{
+			if ( pool == null)
+			pool = new JedisPool("redisroute-abspoc.apps.lnk.phciclab.net", 6379);
+			Jedis jedis = pool.getResource();
+			jedis.set("key1", "Value1");
+			msg = msg + jedis.get("key1");
+		}
+		catch(Exception ex)
+		{
+			
+		}
+		return msg;
 	}
 }
