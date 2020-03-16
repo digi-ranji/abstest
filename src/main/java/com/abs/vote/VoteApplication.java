@@ -54,10 +54,10 @@ public class VoteApplication {
 			  shardInfo.setPassword("admin");
 
 			  Jedis jedis = new Jedis(shardInfo);
-			  msg = msg + "Step 1"; 
+			  msg = msg + "Step 1 > "; 
 			  jedis.set("key1", "Value1");
-			  msg = msg + "Step 2"; 
-			  msg = msg + "Step 3" + jedis.get("key1") ; 
+			  msg = msg + "Step 2 > "; 
+			  msg = msg + "Step 3 > " + jedis.get("key1") ; 
 		}
 		catch(Exception ex)
 		{
