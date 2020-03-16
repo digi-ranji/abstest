@@ -49,9 +49,12 @@ public class VoteApplication {
 		try 
 		{
 			if ( pool == null)
-			pool = new JedisPool("http://redisroute-abspoc.apps.lnk.phciclab.net", 6379);
+			pool = new JedisPool("redisroute");
+			msg = msg + "Step 1"; 
 			Jedis jedis = pool.getResource();
+			msg = msg + "Step 2"; 
 			jedis.set("key1", "Value1");
+			msg = msg + "Step 3"; 
 			msg = msg + jedis.get("key1");
 		}
 		catch(Exception ex)
