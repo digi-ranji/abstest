@@ -49,7 +49,7 @@ public class VoteApplication {
 		try 
 		{
 			if ( jedis == null)
-				jedis = new Jedis("172.30.31.225", 6379);
+				jedis = new Jedis("redisroute-abspoc.apps.lnk.phciclab.net", 6379);
 			msg = msg + "Step 1"; 
 			jedis.set("key1", "Value1");
 			msg = msg + "Step 2"; 
