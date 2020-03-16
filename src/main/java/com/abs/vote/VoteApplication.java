@@ -49,7 +49,7 @@ public class VoteApplication {
 		try 
 		{
 			if ( pool == null)
-			pool = new JedisPool("redisroute-abspoc.apps.lnk.phciclab.net", 6379);
+			pool = new JedisPool("http://redisroute-abspoc.apps.lnk.phciclab.net", 6379);
 			Jedis jedis = pool.getResource();
 			jedis.set("key1", "Value1");
 			msg = msg + jedis.get("key1");
