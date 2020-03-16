@@ -14,7 +14,7 @@ import redis.clients.jedis.JedisPool;
 @RestController
 public class VoteApplication {
 	
-	private  JedisPool pool = null;
+	private  Jedis jedis = null;
 	
 
 
@@ -48,14 +48,14 @@ public class VoteApplication {
 		String msg="Error Connecting Redis";
 		try 
 		{
-			if ( pool == null)
-			pool = new JedisPool("redisroute");
+			if ( jedis == null)
+				jedis = new Jedis("redisroute-abspoc.apps.lnk.phciclab.net");
 			msg = msg + "Step 1"; 
-			Jedis jedis = pool.getResource();
+			
 			msg = msg + "Step 2"; 
 			jedis.set("key1", "Value1");
 			msg = msg + "Step 3"; 
-			msg = msg + jedis.get("key1");
+			msg = "Success Key retrived is " + jedis.get("key1");
 		}
 		catch(Exception ex)
 		{
