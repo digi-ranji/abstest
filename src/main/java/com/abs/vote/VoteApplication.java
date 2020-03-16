@@ -61,13 +61,16 @@ public class VoteApplication {
 			  msg = msg + "Step 2 > "; 
 			  msg = msg + "Step 3 > " + jedis.get("key1") ; 
 			  */
-			
+			/*
 			RedisClient redisClient = new RedisClient(RedisURI.create("redis://admin@routeredis-redishub.apps.lnk.phciclab.net:6379"));
 			 msg = msg + "Step 1 > "; 
 				    RedisConnection<String, String> connection = redisClient.connect();
 				    msg = " Connected > "; 
 				 //   System.out.println("Connected to Redis");
-
+              */
+			 Jedis jedis = new Jedis("routeredis-redishub.apps.lnk.phciclab.net", 6379);
+			    jedis.auth("admin");
+			    msg = " Connected > "; 
 		}
 		catch(Exception ex)
 		{
