@@ -50,7 +50,7 @@ public class VoteApplication {
 		String msg="Error Connecting Redis";
 		try 
 		{
-			  JedisShardInfo shardInfo = new JedisShardInfo("redisroute-default.apps.lnk.phciclab.net");
+			  JedisShardInfo shardInfo = new JedisShardInfo("routeredis-redishub.apps.lnk.phciclab.net");
 			  shardInfo.setPassword("admin");
 
 			  Jedis jedis = new Jedis(shardInfo);
