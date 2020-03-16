@@ -49,12 +49,10 @@ public class VoteApplication {
 		try 
 		{
 			if ( jedis == null)
-				jedis = new Jedis("redisroute-abspoc.apps.lnk.phciclab.net");
+				jedis = new Jedis("redis");
 			msg = msg + "Step 1"; 
-			
-			msg = msg + "Step 2"; 
 			jedis.set("key1", "Value1");
-			msg = msg + "Step 3"; 
+			msg = msg + "Step 2"; 
 			msg = "Success Key retrived is " + jedis.get("key1");
 		}
 		catch(Exception ex)
