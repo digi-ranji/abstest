@@ -68,7 +68,7 @@ public class VoteApplication {
 				    msg = " Connected > "; 
 				 //   System.out.println("Connected to Redis");
               */
-			 Jedis jedis = new Jedis("myredis");
+			 Jedis jedis = new Jedis("redis://:admin@XXXXX:6379/0");
 			    jedis.auth("admin");
 			    msg = " Connected > "; 
 		}
