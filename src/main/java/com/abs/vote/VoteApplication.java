@@ -48,7 +48,7 @@ public class VoteApplication {
 	}
 	@GetMapping("/chkredis")
 	public String checkRedis() {
-		String msg="Error Connecting Redis";
+		String msg="Connecting Redis";
 		try 
 		{
 			/*
@@ -68,13 +68,13 @@ public class VoteApplication {
 				    msg = " Connected > "; 
 				 //   System.out.println("Connected to Redis");
               */
-			 Jedis jedis = new Jedis("http://redis-route-ms-poc.abs-cbn-1584000808650-f72ef11f3ab089a8c677044eb28292cd-0001.au-syd.containers.appdomain.cloud/");
+			 Jedis jedis = new Jedis("redis://redis-route-ms-poc.abs-cbn-1584000808650-f72ef11f3ab089a8c677044eb28292cd-0001.au-syd.containers.appdomain.cloud/");
 			    jedis.auth("admin");
 			    msg = " Connected > "; 
 		}
 		catch(Exception ex)
 		{
-			
+			msg ="Error ";
 		}
 		return msg;
 	}
