@@ -27,7 +27,7 @@ public class VoteApplication {
 	@RequestMapping(value = "/welcome") 
 	public String sayWelcome()  
 	{ 
-		return "Hello Voters";  
+		return "Hello Developers";  
 	}  
 	@RequestMapping(value = "/showvote") 
 	public String showVote()  
