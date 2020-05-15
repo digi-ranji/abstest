@@ -32,7 +32,7 @@ public class VoteApplication {
 	@RequestMapping(value = "/showvote") 
 	public String showVote()  
 	{ 
-		return "Your Candidate is Leading v1.1 ";  
+		return "Your Candidate is Leading for 2M votes ";  
 	}  
 	@GetMapping("/addvote/{v_id}")
 	public String addVote(@PathVariable String v_id) {
